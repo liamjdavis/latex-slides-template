@@ -9,6 +9,8 @@
 \DeclareStringOption[blue]{color}
 \DeclareStringOption[]{accent}
 \DeclareBoolOption[true]{sectoc}
+\DeclareBoolOption[true]{header}
+\DeclareBoolOption[true]{footer}
 \ProcessKeyvalOptions*
 
 \mode<presentation>
@@ -88,6 +90,14 @@
 \setbeamercolor{structure}{fg=neataccent}
 \setbeamercolor{subsection in sidebar}{fg=neataccent!70!black}
 \setbeamercolor{subsection in sidebar shaded}{fg=gray}
+
+% ---- optional: blank header / footer ----------------------------------------
+\ifneat@header\else
+  \setbeamertemplate{headline}{}
+\fi
+\ifneat@footer\else
+  \setbeamertemplate{footline}{}
+\fi
 
 % ---- auto-TOC at section / subsection breaks --------------------------------
 \ifneat@sectoc

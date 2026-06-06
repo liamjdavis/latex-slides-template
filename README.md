@@ -19,12 +19,14 @@ Make sure `beamerthemeneat.sty` is on `TEXINPUTS` (or sits next to your
 | -------------- | ------------------------------------------------------- | ------- |
 | `color=<name>` | `blue`, `red`, `purple`, `green`, `teal`, `orange`, `gray` | `blue`  |
 | `accent=<hex>` | 6-digit HTML hex (overrides `color`)                    | —       |
+| `header`       | `true` / `false` — top section-navigation bar           | `true`  |
+| `footer`       | `true` / `false` — bottom author / title / page bar     | `true`  |
 | `sectoc`       | `true` / `false` — auto-TOC at section breaks           | `true`  |
 
 ```latex
 \usetheme[color=purple]{neat}
 \usetheme[accent=1F497D]{neat}
-\usetheme[sectoc=false]{neat}
+\usetheme[header=false,footer=false,sectoc=false]{neat}  % minimal
 ```
 
 ## Building the example

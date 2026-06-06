@@ -12,8 +12,12 @@ Edit `main.tex` — title, author, content. Compile with `pdfLaTeX` or `XeLaTeX`
 \usetheme{neat}                  % blue (default)
 \usetheme[color=purple]{neat}    % preset: blue, red, purple, green, teal, orange, gray
 \usetheme[accent=1F497D]{neat}   % any 6-digit HTML hex
+\usetheme[header=false]{neat}    % drop the top section-navigation bar
+\usetheme[footer=false]{neat}    % drop the bottom author/title bar
 \usetheme[sectoc=false]{neat}    % disable auto-TOC at section breaks
 ```
+
+Options combine, e.g. `\usetheme[color=teal,header=false,sectoc=false]{neat}`.
 
 ## Credits
 
