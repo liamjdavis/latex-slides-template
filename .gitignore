@@ -11,3 +11,5 @@
 *.bbl
 *.blg
 example/*.pdf
+overleaf/beamerthemeneat.sty
+overleaf.zip

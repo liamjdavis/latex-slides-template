@@ -1,0 +1,78 @@
+\documentclass[aspectratio=43]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,booktabs,graphicx,hyperref}
+
+\usetheme{neat}
+% Color presets: blue (default), red, purple, green, teal, orange, gray
+%   \usetheme[color=purple]{neat}
+% Or a custom 6-digit HTML hex:
+%   \usetheme[accent=1F497D]{neat}
+% Disable auto table-of-contents at section breaks:
+%   \usetheme[sectoc=false]{neat}
+
+\title{Presentation Title}
+\subtitle{Optional Subtitle}
+\author{Author Name}
+\institute{Affiliation}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Section title goes here}
+  \begin{itemize}
+    \item First point
+    \item Second point
+    \item Third point
+  \end{itemize}
+\end{frame}
+
+\section{Content}
+
+\begin{frame}{Blocks}
+  \begin{block}{Block}
+    A standard block.
+  \end{block}
+
+  \begin{exampleblock}{Example}
+    An example block.
+  \end{exampleblock}
+
+  \begin{alertblock}{Alert}
+    An alert block.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Math and columns}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{enumerate}
+        \item One
+        \item Two
+        \item Three
+      \end{enumerate}
+    \column{0.5\textwidth}
+      \[
+        e^{i\pi} + 1 = 0
+      \]
+  \end{columns}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Thanks}
+  \centering\Large Questions?
+\end{frame}
+
+\end{document}

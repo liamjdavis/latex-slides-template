@@ -34,6 +34,18 @@ cd example
 make
 ```
 
+## Overleaf
+
+`overleaf/` holds a template-shaped `main.tex` + README. To build a flat
+zip for upload (or for submitting to the Overleaf template gallery):
+
+```sh
+make overleaf      # produces overleaf.zip
+```
+
+On Overleaf: *New Project → Upload Project*, pick the zip. To publish as a
+template, open the project and use *Menu → Submit to template gallery*.
+
 ## Credit
 
 Lifted from [tuna/THU-Beamer-Theme](https://github.com/tuna/THU-Beamer-Theme)
