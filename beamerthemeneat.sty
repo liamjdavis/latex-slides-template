@@ -1,0 +1,110 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeneat}[2026/06/06 v0.1 Neat institution-agnostic beamer theme]
+
+\RequirePackage{kvoptions}
+\RequirePackage{etoolbox}
+\RequirePackage{xcolor}
+
+\SetupKeyvalOptions{family=neat, prefix=neat@}
+\DeclareStringOption[blue]{color}
+\DeclareStringOption[]{accent}
+\DeclareBoolOption[true]{sectoc}
+\ProcessKeyvalOptions*
+
+\mode<presentation>
+
+% ---- color palette ----------------------------------------------------------
+\definecolor{neat@blue}{RGB}{31,73,125}
+\definecolor{neat@red}{RGB}{176,16,25}
+\definecolor{neat@purple}{RGB}{116,52,129}
+\definecolor{neat@green}{RGB}{27,94,32}
+\definecolor{neat@teal}{RGB}{0,105,120}
+\definecolor{neat@orange}{RGB}{198,93,15}
+\definecolor{neat@gray}{RGB}{60,60,60}
+
+\def\neat@setaccent#1{\colorlet{neataccent}{neat@#1}}
+\ifdefempty{\neat@accent}{%
+  \expandafter\neat@setaccent\expandafter{\neat@color}%
+}{%
+  \definecolor{neataccent}{HTML}{\neat@accent}%
+}
+
+% ---- outer + inner themes ---------------------------------------------------
+\useoutertheme[footline=authorinstitutetitle,subsection=false]{smoothbars}
+\useinnertheme{circles}
+
+% ---- footline (author|institute, title|page X/Y) ----------------------------
+\newcommand{\frameofframes}{/}
+\newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}\end{beamercolorbox}%
+  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+    \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+    \hfill%
+    {\usebeamerfont{institute in head/foot}%
+     \usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    {\usebeamerfont{title in head/foot}\insertshorttitle}%
+    \hfill%
+    {\usebeamerfont{frame number}%
+     \usebeamercolor[fg]{frame number}%
+     \insertframenumber~\frameofframes~\inserttotalframenumber}%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}\end{beamercolorbox}%
+}
+
+% ---- font, captions, bibliography ------------------------------------------
+\setbeamerfont{frametitle}{size=\large}
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]
+
+% ---- color assignments ------------------------------------------------------
+\setbeamercolor{footline}{bg=neataccent}
+\setbeamercolor{frametitle}{bg=neataccent,fg=white}
+\setbeamercolor{title}{bg=neataccent}
+
+\setbeamercolor{palette primary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor{palette secondary}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{palette tertiary}{use=structure,fg=white,bg=structure.fg!50!black}
+\setbeamercolor{palette quaternary}{fg=white,bg=structure.fg!50!black}
+\setbeamercolor{titlelike}{parent=palette primary}
+
+\setbeamercolor{block title}{bg=neataccent,fg=white}
+\setbeamercolor*{block title example}{use={normal text,example text},bg=white,fg=neataccent}
+\setbeamercolor{fine separation line}{}
+\setbeamercolor{item projected}{fg=white}
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{section in sidebar}{fg=neataccent!70!black}
+\setbeamercolor{section in sidebar shaded}{fg=gray}
+\setbeamercolor{separation line}{}
+\setbeamercolor{sidebar}{bg=neataccent}
+\setbeamercolor{sidebar}{parent=palette primary}
+\setbeamercolor{structure}{fg=neataccent}
+\setbeamercolor{subsection in sidebar}{fg=neataccent!70!black}
+\setbeamercolor{subsection in sidebar shaded}{fg=gray}
+
+% ---- auto-TOC at section / subsection breaks --------------------------------
+\ifneat@sectoc
+  \AtBeginSection[]{%
+    \begin{frame}%
+      \tableofcontents[sectionstyle=show/shaded,%
+        subsectionstyle=show/shaded/hide,%
+        subsubsectionstyle=show/shaded/hide]%
+    \end{frame}%
+  }
+  \AtBeginSubsection[]{%
+    \begin{frame}%
+      \tableofcontents[sectionstyle=show/shaded,%
+        subsectionstyle=show/shaded/hide,%
+        subsubsectionstyle=show/shaded/hide]%
+    \end{frame}%
+  }
+\fi
+
+\mode<all>

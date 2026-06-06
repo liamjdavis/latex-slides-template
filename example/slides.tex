@@ -1,0 +1,88 @@
+\documentclass[aspectratio=43]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,booktabs,graphicx,hyperref}
+
+% theme lives one dir up — adjust TEXINPUTS or move .sty next to this file
+\usetheme{neat}
+% \usetheme[color=red]{neat}
+% \usetheme[accent=1F497D]{neat}
+% \usetheme[sectoc=false]{neat}
+
+\title{Neat Beamer Theme}
+\subtitle{An institution-agnostic template}
+\author{Your Name}
+\institute{Independent}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Motivation}
+
+\begin{frame}{Why another theme?}
+  \begin{itemize}
+    \item Inspired by THU and UCASS beamer themes
+    \item Same clean look: \texttt{smoothbars} + \texttt{circles} + custom footline
+    \item No institutional branding, no hardcoded logo
+    \item One accent color drives everything
+  \end{itemize}
+\end{frame}
+
+\section{Features}
+
+\subsection{Blocks}
+
+\begin{frame}{Blocks}
+  \begin{block}{Standard block}
+    Uses the accent color as background.
+  \end{block}
+
+  \begin{exampleblock}{Example block}
+    Inverted: accent on white.
+  \end{exampleblock}
+
+  \begin{alertblock}{Alert block}
+    Beamer's red alert color.
+  \end{alertblock}
+\end{frame}
+
+\subsection{Math and lists}
+
+\begin{frame}{Math and lists}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{enumerate}
+        \item First
+        \item Second
+        \item Third
+      \end{enumerate}
+    \column{0.5\textwidth}
+      \[
+        e^{i\pi} + 1 = 0
+      \]
+  \end{columns}
+\end{frame}
+
+\section{Customization}
+
+\begin{frame}[fragile]{Changing color}
+  Pass an option to \verb|\usetheme|:
+  \begin{verbatim}
+\usetheme[color=red]{neat}      % preset
+\usetheme[accent=1F497D]{neat}  % custom hex
+\usetheme[sectoc=false]{neat}   % no auto-TOC
+  \end{verbatim}
+  Presets: \texttt{blue} (default), \texttt{red}, \texttt{purple},
+  \texttt{green}, \texttt{teal}, \texttt{orange}, \texttt{gray}.
+\end{frame}
+
+\end{document}
